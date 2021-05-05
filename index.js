@@ -161,7 +161,7 @@ async function Main(toBlock, endBlock) {
     const elements = DataForMerkleTree.map((x) => {
         const index = gIndex++;
         const address = x.address;
-        const amount = new BigNumber(x.amount).multipliedBy(10 ** 18).toString(10);
+        const amount = new BigNumber(x.amount).multipliedBy(1).toString(10);
         if (address.length != 42) throw new Error();
         const packed = pack([index, address, amount], [256, 160, 256]);
         totalFunds += amount * 1;
@@ -178,7 +178,6 @@ async function Main(toBlock, endBlock) {
         JSON.stringify(elements.map((x) => {
             return {proofs: merkleTree.getHexProof(x.leaf), index: x.index, address: x.address, amount: x.amount};
         })), 'utf8');
-
 }
 
 

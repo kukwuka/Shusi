@@ -2,9 +2,9 @@
   "pid0": {
     "0x5c064bf2c4c3669068167e0def02d5318810bce0": {
       "deposit": 1000000000000000000,
-      "pending0": 1.6280150462962962e+23,
+      "pending0": 1.6296971450617283e+23,
       "harvestedTokens": 0,
-      "userTokens": 1.6280150462962962e+23
+      "userTokens": 1.6296971450617283e+23
     }
   },
   "pidOther": {
@@ -15,7 +15,7 @@
       "pending3": 0,
       "harvestedTokens": 787052156240504200000,
       "userTokens": 787052156240504200000,
-      "DUMMYpart": 0.00731642705843016
+      "DUMMYpart": 0.007310711647141241
     },
     "0x0d8cf1d1c732d01dad3091dfc5aa494ea053106d": {
       "deposit": 4.5669403644428346e+21,
@@ -24,7 +24,7 @@
       "pending3": 0,
       "harvestedTokens": 4.96663014144281e+21,
       "userTokens": 4.96663014144281e+21,
-      "DUMMYpart": 0.046169732041192686
+      "DUMMYpart": 0.04613366539204724
     },
     "0x86ddab699a51ad96d7b27036783403a4f04ae1de": {
       "deposit": 9.169420064510452e+21,
@@ -33,7 +33,7 @@
       "pending3": 0,
       "harvestedTokens": 1.7186864880795316e+22,
       "userTokens": 1.7186864880795316e+22,
-      "DUMMYpart": 0.15976888223530744
+      "DUMMYpart": 0.15964407474855835
     },
     "0x0143612585e51d81344b5d5dbfebadfa53867881": {
       "deposit": 114422109456527020000,
@@ -42,7 +42,7 @@
       "pending3": 0,
       "harvestedTokens": 1.1773689151833037e+21,
       "userTokens": 1.1773689151833037e+21,
-      "DUMMYpart": 0.0109448067964754
+      "DUMMYpart": 0.01093625698495947
     },
     "0x58c79ed2843b8743f4c7025e66b84c979596066a": {
       "deposit": 168914159866438450000,
@@ -51,7 +51,7 @@
       "pending3": 0,
       "harvestedTokens": 533562165838496000000,
       "userTokens": 533562165838496000000,
-      "DUMMYpart": 0.004959987259475184
+      "DUMMYpart": 0.004956112640491176
     },
     "0x1f3d7724be40e80ee3b55129dfeb3e7706ab0313": {
       "deposit": 37054169341290860000,
@@ -60,16 +60,16 @@
       "pending3": 0,
       "harvestedTokens": 501392608644954060000,
       "userTokens": 501392608644954060000,
-      "DUMMYpart": 0.004660939455791099
+      "DUMMYpart": 0.004657298445531602
     },
     "0x329efe9a1a4ac0af843aca2e2c1ed9b746245491": {
       "deposit": 48341875015881196000,
-      "pending1": 1.45034032405422e+21,
+      "pending1": 1.4510727661750578e+21,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 33918383709450100000,
-      "userTokens": 1.48425870776367e+21,
-      "DUMMYpart": 0.013797650492522516
+      "userTokens": 1.484991149884508e+21,
+      "DUMMYpart": 0.013793675564297544
     },
     "0x86f8f17dbb9ead2ec85785805b0751f69de16ca1": {
       "deposit": 2.792575821190027e+21,
@@ -78,16 +78,16 @@
       "pending3": 0,
       "harvestedTokens": 5.625407275229729e+21,
       "userTokens": 5.625407275229729e+21,
-      "DUMMYpart": 0.05229371608582928
+      "DUMMYpart": 0.05225286553229138
     },
     "0xa4b949fb6b2979e383b753f7b086ee1a7adb552a": {
       "deposit": 148658341763602100000,
-      "pending1": 93331354567743280000,
+      "pending1": 97523588585085650000,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 3.8624248406501627e+21,
-      "userTokens": 3.955756195217906e+21,
-      "DUMMYpart": 0.0367726604060037
+      "userTokens": 3.9599484292352484e+21,
+      "DUMMYpart": 0.036782875028224124
     },
     "0x197ab3f77d7bb7f77df23c4d41c130591b398e2f": {
       "deposit": 43806066017915790000,
@@ -96,7 +96,7 @@
       "pending3": 0,
       "harvestedTokens": 254603846899001560000,
       "userTokens": 254603846899001560000,
-      "DUMMYpart": 0.0023667941951016538
+      "DUMMYpart": 0.0023649453141993764
     },
     "0x3f20e968a304bc825aa1a45228fdfd2d3d90c6af": {
       "deposit": 57906951591833150000,
@@ -105,7 +105,7 @@
       "pending3": 0,
       "harvestedTokens": 560999111611517300000,
       "userTokens": 560999111611517300000,
-      "DUMMYpart": 0.0052150407662380485
+      "DUMMYpart": 0.005210966905782734
     },
     "0x1853dba72ea5bb376993c8996ddc53107b28274f": {
       "deposit": 28306733477561410000,
@@ -114,7 +114,7 @@
       "pending3": 0,
       "harvestedTokens": 160695662670338100000,
       "userTokens": 160695662670338100000,
-      "DUMMYpart": 0.001493824882139521
+      "DUMMYpart": 0.0014926579432051389
     },
     "0xd6532dfee83459b8bef5014d52ac82ff0ece54ca": {
       "deposit": 14786074859752937000,
@@ -123,7 +123,7 @@
       "pending3": 0,
       "harvestedTokens": 43597737449890005000,
       "userTokens": 43597737449890005000,
-      "DUMMYpart": 0.00040528402525237057
+      "DUMMYpart": 0.0004049674274274148
     },
     "0x904bb2b1606583de42a380636dab40424b53710f": {
       "deposit": 36835456417962246000,
@@ -132,61 +132,61 @@
       "pending3": 0,
       "harvestedTokens": 44473872044192780000,
       "userTokens": 44473872044192780000,
-      "DUMMYpart": 0.000413428561547402
+      "DUMMYpart": 0.00041310560141276804
     },
     "0x163bea4b5db2e7f9acb0f737c5b2ca1fa5f268df": {
       "deposit": 10348419120133853000,
-      "pending1": 13087338319487603000,
+      "pending1": 13396415302874288000,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 610760360176867700000,
-      "userTokens": 623847698496355300000,
-      "DUMMYpart": 0.005799280448478135
+      "userTokens": 624156775479742000000,
+      "DUMMYpart": 0.00579762112581967
     },
     "0x30b7e38759b590896d231f77d4c87f5bf6360c90": {
       "deposit": 3.772369047429199e+21,
-      "pending1": 2.769505099620751e+21,
-      "pending2": 1.566203795713369e+22,
-      "pending3": 1.4679505201173708e+21,
+      "pending1": 2.771278765086454e+21,
+      "pending2": 1.5689265095973712e+22,
+      "pending3": 1.4687470547922977e+21,
       "harvestedTokens": 6.5668576007573e+21,
-      "userTokens": 2.646635117762911e+22,
-      "DUMMYpart": 0.24603087147219393
+      "userTokens": 2.649614851660976e+22,
+      "DUMMYpart": 0.24611545757022396
     },
     "0x0cc7d4cf1369fce7e4b6c6d2f0d1af76ac1ba926": {
       "deposit": 205153999123877500000,
       "pending1": 0,
       "pending2": 0,
-      "pending3": 11668411429038078000,
+      "pending3": 11781264044860109000,
       "harvestedTokens": 379539809136910200000,
-      "userTokens": 391208220565948300000,
-      "DUMMYpart": 0.0036366667542098506
+      "userTokens": 391321073181770300000,
+      "DUMMYpart": 0.003634874137372385
     },
     "0x49742c940a14d26aa7ae4c9ae805d4a4ffe304c1": {
       "deposit": 3.297e+21,
       "pending1": 0,
       "pending2": 0,
-      "pending3": 628249818733782000000,
+      "pending3": 630063456664089000000,
       "harvestedTokens": 5.548764360926262e+21,
-      "userTokens": 6.177014179660044e+21,
-      "DUMMYpart": 0.05742144701089089
+      "userTokens": 6.178827817590351e+21,
+      "DUMMYpart": 0.05739343718656266
     },
     "0xe1adc15eddb6627c988de50adc5e416e628dbf16": {
       "deposit": 1.0139685774839282e+22,
-      "pending1": 236817395270752200000,
+      "pending1": 241150744227843470000,
       "pending2": 0,
-      "pending3": 301445009694822560000,
+      "pending3": 306863561571750500000,
       "harvestedTokens": 1.1354329847045888e+22,
-      "userTokens": 1.1892592252011462e+22,
-      "DUMMYpart": 0.11055338970560546
+      "userTokens": 1.1902344152845482e+22,
+      "DUMMYpart": 0.11055761087312407
     },
     "0xa6e96dbb6b7d2c12062e70d3dec87c4fe23f961f": {
       "deposit": 15238672370699340000,
       "pending1": 0,
-      "pending2": 1460736166692725000,
+      "pending2": 2009298585888861200,
       "pending3": 0,
       "harvestedTokens": 402910200679954600000,
-      "userTokens": 404370936846647300000,
-      "DUMMYpart": 0.0037590272010937765
+      "userTokens": 404919499265843460000,
+      "DUMMYpart": 0.0037611861881905826
     },
     "0x4696acd611682ccec6ab2805a217221fc6471d61": {
       "deposit": 38915781183438360000,
@@ -195,34 +195,34 @@
       "pending3": 0,
       "harvestedTokens": 394319455394856700000,
       "userTokens": 394319455394856700000,
-      "DUMMYpart": 0.0036655887544951786
+      "DUMMYpart": 0.0036627252875077176
     },
     "0x0752adfe7c42d89bf2fb3c22ffa18b7d0871c807": {
       "deposit": 74949132536032170000,
-      "pending1": 5983910019445389000,
+      "pending1": 8222421189389782000,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 2.8024597464578114e+21,
-      "userTokens": 2.8084436564772567e+21,
-      "DUMMYpart": 0.026107257311226824
+      "userTokens": 2.810682167647201e+21,
+      "DUMMYpart": 0.026107655885960857
     },
     "0x65cad24d55787bf2ae0fdd7fa32ce78dacf1af18": {
       "deposit": 25915850163033285000,
-      "pending1": 693599774434539500000,
+      "pending1": 694373805008418000000,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 540732947763299500000,
-      "userTokens": 1.234332722197839e+21,
-      "DUMMYpart": 0.011474341638210823
+      "userTokens": 1.2351067527717176e+21,
+      "DUMMYpart": 0.011472567924954382
     },
     "0x43b2620085b8d72b7b38fca9e6ab86eb635b76d4": {
       "deposit": 42622243317634810000,
-      "pending1": 1.9797105546315372e+21,
+      "pending1": 1.9809835562597915e+21,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 0,
-      "userTokens": 1.9797105546315372e+21,
-      "DUMMYpart": 0.01840336470069955
+      "userTokens": 1.9809835562597915e+21,
+      "DUMMYpart": 0.01840081301183585
     },
     "0x49eac024576148f6760fb44597e6f728086c108a": {
       "deposit": 7265645725029636000,
@@ -231,7 +231,7 @@
       "pending3": 0,
       "harvestedTokens": 123587354137851540000,
       "userTokens": 123587354137851540000,
-      "DUMMYpart": 0.0011488665074156287
+      "DUMMYpart": 0.0011479690414047594
     },
     "0xa1ecb46c0be223dff23efda8bd553d17b938af47": {
       "deposit": 5.97644752787351e+21,
@@ -240,7 +240,7 @@
       "pending3": 0,
       "harvestedTokens": 1.0966076645366072e+22,
       "userTokens": 1.0966076645366072e+22,
-      "DUMMYpart": 0.10194051214626018
+      "DUMMYpart": 0.10186087874743503
     },
     "0x86f12d22052e0f351f99de75cceecbccee42af74": {
       "deposit": 69349994596808065000,
@@ -249,7 +249,7 @@
       "pending3": 0,
       "harvestedTokens": 114867557178860260000,
       "userTokens": 114867557178860260000,
-      "DUMMYpart": 0.001067807383304309
+      "DUMMYpart": 0.0010669732386700236
     },
     "0xcf277775967980571ca0df663a35ecd38c9e7a12": {
       "deposit": 1.3117515012732758e+21,
@@ -258,79 +258,79 @@
       "pending3": 0,
       "harvestedTokens": 1.9797408203221463e+21,
       "userTokens": 1.9797408203221463e+21,
-      "DUMMYpart": 0.018403646050183135
+      "DUMMYpart": 0.018389269578504747
     },
     "0x6739900f4e1f25f44b586df19c27ad7848289c9c": {
       "deposit": 4.755605382788261e+21,
       "pending1": 0,
       "pending2": 0,
-      "pending3": 1.1693925594628763e+21,
+      "pending3": 1.1720085577351835e+21,
       "harvestedTokens": 0,
-      "userTokens": 1.1693925594628763e+21,
-      "DUMMYpart": 0.010870658692874034
+      "userTokens": 1.1720085577351835e+21,
+      "DUMMYpart": 0.010886466094586968
     },
     "0x5d48b8b71e34e7f89438c71841c9cface8c8ebcd": {
       "deposit": 7.13462070526363e+21,
-      "pending1": 1.0125559234399468e+21,
+      "pending1": 1.0154306862016555e+21,
       "pending2": 0,
-      "pending3": 1.1013772263408325e+21,
+      "pending3": 1.1052489438461176e+21,
       "harvestedTokens": 153340419217308600000,
-      "userTokens": 2.2672735689980877e+21,
-      "DUMMYpart": 0.021076546906774667
+      "userTokens": 2.2740200492650815e+21,
+      "DUMMYpart": 0.02112274863638747
     },
     "0xc42deae116b1d12fbe079c1ad8e357da1b2c7020": {
       "deposit": 4115061342313253400,
-      "pending1": 35274675977986340000,
+      "pending1": 35397580813146984000,
       "pending2": 0,
       "pending3": 0,
       "harvestedTokens": 0,
-      "userTokens": 35274675977986340000,
-      "DUMMYpart": 0.0003279129492961216
+      "userTokens": 35397580813146984000,
+      "DUMMYpart": 0.00032879842114582757
     },
     "0xcb8f53942ae4631def0dba89baa69414729faf75": {
       "deposit": 7202562314890585000,
       "pending1": 0,
-      "pending2": 39951732370610190000,
+      "pending2": 40211010535515440000,
       "pending3": 0,
       "harvestedTokens": 0,
-      "userTokens": 39951732370610190000,
-      "DUMMYpart": 0.0003713908073687705
+      "userTokens": 40211010535515440000,
+      "DUMMYpart": 0.0003735090498570229
     },
     "0xb991793d36550c6c36f32144b1847f1a3f52b0b4": {
       "deposit": 4.342591798888482e+21,
-      "pending1": 30735596158293094000,
+      "pending1": 30896668959340716000,
       "pending2": 0,
-      "pending3": 504192580438513700000,
+      "pending3": 506578418555714700000,
       "harvestedTokens": 0,
-      "userTokens": 534928176596806800000,
-      "DUMMYpart": 0.0049726856784998545
+      "userTokens": 537475087515055400000,
+      "DUMMYpart": 0.0049924586969098735
     },
     "0xfcc768fa5fa96fd58eaa8985e58caa6441bf4f3c": {
       "deposit": 325058376725235760000,
       "pending1": 0,
       "pending2": 0,
-      "pending3": 17862226936710357000,
+      "pending3": 18041037431582335000,
       "harvestedTokens": 0,
-      "userTokens": 17862226936710357000,
-      "DUMMYpart": 0.0001660470395098349
+      "userTokens": 18041037431582335000,
+      "DUMMYpart": 0.00016757824933431325
     },
     "0xce0dd2684dfd2ad37c19d54a6ac93fd4cb1653a0": {
       "deposit": 899878125551971700000,
       "pending1": 0,
       "pending2": 0,
-      "pending3": 37873998750555260000,
+      "pending3": 38369010306865430000,
       "harvestedTokens": 0,
-      "userTokens": 37873998750555260000,
-      "DUMMYpart": 0.00035207622147068586
+      "userTokens": 38369010306865430000,
+      "DUMMYpart": 0.000356399214862157
     },
     "0x494d8f637661d2611d6f7db30a4a633ca03c8d2e": {
       "deposit": 1.911748457489966e+22,
-      "pending1": 247235426799019820000,
+      "pending1": 256479700860825600000,
       "pending2": 0,
-      "pending3": 275700246714073580000,
+      "pending3": 286046273104289430000,
       "harvestedTokens": 108674504186172180000,
-      "userTokens": 631610177699265500000,
-      "DUMMYpart": 0.005871440358631941
+      "userTokens": 651200478151287200000,
+      "DUMMYpart": 0.0060488226637801035
     }
   }
 }
