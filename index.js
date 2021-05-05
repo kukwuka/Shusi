@@ -12,7 +12,7 @@ const ContractChef = new web3.eth.Contract(MasterChef, '0xe8Cc9f640C55f3c5905FD2
 const ContractCGT = new web3.eth.Contract(CGT, '0xf56b164efd3cfc02ba739b719b6526a6fa1ca32a');
 
 
-(async () => {
+async function Main(toBlock, endBlock) {
     let pid0Hash = [];
     let pidOtherHash = [];
     let withDrawHash = {pid0Hash, pidOtherHash};
@@ -21,13 +21,13 @@ const ContractCGT = new web3.eth.Contract(CGT, '0xf56b164efd3cfc02ba739b719b6526
     let pidOther = {};
     let uniqueAddresses = {pid0, pidOther};
     let eventsDeposit = await ContractChef.getPastEvents("Deposit", {
-        fromBlock: 0,
-        toBlock: 'latest'
+        fromBlock: toBlock,
+        toBlock: endBlock
     });
 
     let eventsWithdraw = await ContractChef.getPastEvents("Withdraw", {
-        fromBlock: 0,
-        toBlock: 'latest'
+        fromBlock: toBlock,
+        toBlock: endBlock
     });
 
     for (let event of eventsWithdraw) {
@@ -113,4 +113,8 @@ const ContractCGT = new web3.eth.Contract(CGT, '0xf56b164efd3cfc02ba739b719b6526
         }
     });
 
-})()
+}
+
+Main(0,'latest')
+
+
