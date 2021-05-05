@@ -82,10 +82,14 @@ async function Main(toBlock, endBlock) {
 
 
     for (let user of Object.keys(uniqueAddresses.pidOther)) {
-        let transaction = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=0&endblock=999999999&sort=asc&apikey=B37NC728AS31WBW26RN9PMR2WTUS22P66F`)
+        let transaction = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=0&endblock=999999999&sort=asc&apikey=B37NC728AS31WBW26RN9PMR2WTUS22P66F`);
         uniqueAddresses.pidOther[user].harvestedTokens = 0;
         for (let i = 0; i < transaction.data.result.length; i++) {
-            if (transaction.data.result[i].from === "0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d".toLowerCase()) {
+            if (
+                transaction.data.result[i].from === "0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d".toLowerCase()
+                &&
+                transaction.data.result[i].tokenSymbol === 'CGT'
+            ) {
                 if (
                     !withDrawHash.pidOtherHash.includes(transaction.data.result[i].hash)
                     &&
@@ -97,10 +101,14 @@ async function Main(toBlock, endBlock) {
     }
 
     for (let user of Object.keys(uniqueAddresses.pid0)) {
-        let transaction = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=0&endblock=999999999&sort=asc&apikey=B37NC728AS31WBW26RN9PMR2WTUS22P66F`)
+        let transaction = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=0&endblock=999999999&sort=asc&apikey=B37NC728AS31WBW26RN9PMR2WTUS22P66F`);
         uniqueAddresses.pid0[user].harvestedTokens = 0
         for (let i = 0; i < transaction.data.result.length; i++) {
-            if (transaction.data.result[i].from === "0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d".toLowerCase()) {
+            if (
+                transaction.data.result[i].from === "0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d".toLowerCase()
+                &&
+                transaction.data.result[i].tokenSymbol === 'CGT'
+            ) {
                 if (
                     !withDrawHash.pid0Hash.includes(transaction.data.result[i].hash)
                     &&
