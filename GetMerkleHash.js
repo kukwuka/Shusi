@@ -201,6 +201,9 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
             return {proofs: merkleTree.getHexProof(x.leaf), index: x.index, address: x.address, amount: x.amount};
         })), 'utf8');
 
+    fs.writeFileSync('./logs/root.json',
+        JSON.stringify(root), 'utf8');
+
 
     return root
 }
