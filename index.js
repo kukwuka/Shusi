@@ -9,12 +9,14 @@ const {decToHex, zeroPad, pack} = require('./helpers/utils.js');
 const {MerkleTree} = require('./helpers/merkleTree.js');
 
 const MasterChef = require('./abi/MasterChefAbi.json');
+const MasterChefAddress = '0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d';
 const CGT = require('./abi/CGTabi.json');
+const CGTaddress = '0xf56b164efd3cfc02ba739b719b6526a6fa1ca32a';
 
 
 const web3 = new Web3(new Web3.providers.HttpProvider(process.env.INFURA_URL));
-const ContractChef = new web3.eth.Contract(MasterChef, '0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d');
-const ContractCGT = new web3.eth.Contract(CGT, '0xf56b164efd3cfc02ba739b719b6526a6fa1ca32a');
+const ContractChef = new web3.eth.Contract(MasterChef, MasterChefAddress );
+const ContractCGT = new web3.eth.Contract(CGT, CGTaddress);
 
 
 async function Main(toBlock, endBlock) {
@@ -82,7 +84,7 @@ async function Main(toBlock, endBlock) {
 
 
     for (let user of Object.keys(uniqueAddresses.pidOther)) {
-        let transaction = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=0&endblock=999999999&sort=asc&apikey=B37NC728AS31WBW26RN9PMR2WTUS22P66F`);
+        let transaction = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=0&endblock=999999999&sort=asc&apikey=${process.env.API_EthScan}`);
         uniqueAddresses.pidOther[user].harvestedTokens = 0;
         for (let i = 0; i < transaction.data.result.length; i++) {
             if (
