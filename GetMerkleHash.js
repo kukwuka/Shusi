@@ -11,12 +11,15 @@ const {MerkleTree} = require('./helpers/merkleTree.js');
 const MasterChef = require('./abi/MasterChefAbi.json');
 
 
-async function GetMerkleHash(startBlock, endBlock) {
+async function GetMerkleHash(startBlock, endBlock, config = null) {
+    require('dotenv').config(config);
 
     console.log("Starting");
 
-
+    console.log(process.env.INFURA_URL)
     const web3 = new Web3(new Web3.providers.HttpProvider(process.env.INFURA_URL));
+    // console.log(web3)
+
     const ContractChef = new web3.eth.Contract(MasterChef, '0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d');
 
 
@@ -35,10 +38,12 @@ async function GetMerkleHash(startBlock, endBlock) {
     let pid0 = {};
     let pidOther = {};
     let uniqueAddresses = {pid0, pidOther};
+    // console.log(ContractChef)
     let eventsDeposit = await ContractChef.getPastEvents("Deposit", {
         fromBlock: startBlock,
         toBlock: endBlock
     });
+
 
     let eventsWithdraw = await ContractChef.getPastEvents("Withdraw", {
         fromBlock: startBlock,
@@ -195,6 +200,7 @@ async function GetMerkleHash(startBlock, endBlock) {
         JSON.stringify(elements.map((x) => {
             return {proofs: merkleTree.getHexProof(x.leaf), index: x.index, address: x.address, amount: x.amount};
         })), 'utf8');
+
 
     return root
 }
