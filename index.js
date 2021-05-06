@@ -17,7 +17,10 @@ const ContractChef = new web3.eth.Contract(MasterChef, '0xe8Cc9f640C55f3c5905FD2
 const ContractCGT = new web3.eth.Contract(CGT, '0xf56b164efd3cfc02ba739b719b6526a6fa1ca32a');
 
 
-async function Main(toBlock, endBlock) {
+async function GetMerkleHash(toBlock, endBlock) {
+    console.log("Starting");
+
+
     let pid0Hash = [];
     let pidOtherHash = [];
     let withDrawHash = {pid0Hash, pidOtherHash};
@@ -186,7 +189,10 @@ async function Main(toBlock, endBlock) {
         JSON.stringify(elements.map((x) => {
             return {proofs: merkleTree.getHexProof(x.leaf), index: x.index, address: x.address, amount: x.amount};
         })), 'utf8');
+
+    return root
 }
 
-
-Main(0, 'latest')
+module.exports = {
+    GetMerkleHash
+};
