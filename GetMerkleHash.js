@@ -11,20 +11,18 @@ const {MerkleTree} = require('./helpers/merkleTree.js');
 const MasterChef = require('./abi/MasterChefAbi.json');
 
 
+// This function returns root of merkle tree
 async function GetMerkleHash(startBlock, endBlock, config = null) {
     require('dotenv').config(config);
 
     console.log("Starting");
 
-    console.log(process.env.INFURA_URL)
+    //connect to mainNet
     const web3 = new Web3(new Web3.providers.HttpProvider(process.env.INFURA_URL));
-    // console.log(web3)
 
-    const ContractChef = new web3.eth.Contract(MasterChef, '0xe8Cc9f640C55f3c5905FD2BBb63C53fb8A3A527d');
-
-
+    //get main contract
     const MasterChefAddress = process.env.MASTER_CHEF_ADDRESS;
-
+    const ContractChef = new web3.eth.Contract(MasterChef, MasterChefAddress);
 
     let pid0Hash = [];
     let pidOtherHash = [];
@@ -38,18 +36,20 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
     let pid0 = {};
     let pidOther = {};
     let uniqueAddresses = {pid0, pidOther};
-    // console.log(ContractChef)
+
+    //Get all deposits
     let eventsDeposit = await ContractChef.getPastEvents("Deposit", {
         fromBlock: startBlock,
         toBlock: endBlock
     });
 
-
+    //Get all withdraws
     let eventsWithdraw = await ContractChef.getPastEvents("Withdraw", {
         fromBlock: startBlock,
         toBlock: endBlock
     });
 
+    //check pid of withdraws
     for (let event of eventsWithdraw) {
         if (event.returnValues.pid === "0") {
             withDrawHash.pid0Hash.push(event.transactionHash);
@@ -58,6 +58,7 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
         withDrawHash.pidOtherHash.push(event.transactionHash);
     }
 
+    //check pid of deposits
     for (let row of eventsDeposit) {
         let user = row.returnValues.user.toLowerCase();
 
@@ -79,29 +80,33 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
 
     }
 
+    //get all other Pid
     for (const user of Object.keys(uniqueAddresses.pidOther)) {
         uniqueAddresses.pidOther[user].pending1 = Number(await ContractChef.methods.pendingSushi(1, user).call());
         uniqueAddresses.pidOther[user].pending2 = Number(await ContractChef.methods.pendingSushi(2, user).call());
         uniqueAddresses.pidOther[user].pending3 = Number(await ContractChef.methods.pendingSushi(3, user).call());
     }
 
-
+    //get with pid 0 (there are will be only 1 address)
     for (const user of Object.keys(uniqueAddresses.pid0)) {
         uniqueAddresses.pid0[user].pending0 = Number(await ContractChef.methods.pendingSushi(0, user).call());
     }
 
 
+    //Get all transactions  of pid0
     for (let user of Object.keys(uniqueAddresses.pidOther)) {
         let transaction = await axios.get(
             `https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=${process.env.API_EthScan}`
         );
         uniqueAddresses.pidOther[user].harvestedTokens = 0;
         for (let i = 0; i < transaction.data.result.length; i++) {
+            //The token is CGT and from MasterChef
             if (
                 transaction.data.result[i].from === MasterChefAddress.toLowerCase()
                 &&
                 transaction.data.result[i].tokenSymbol === 'CGT'
             ) {
+                //and this this transaction must be withdraw or deposit
                 if (
                     !withDrawHash.pidOtherHash.includes(transaction.data.result[i].hash)
                     &&
@@ -112,6 +117,7 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
         }
     }
 
+    //Get all transactions  of other pid
     for (let user of Object.keys(uniqueAddresses.pid0)) {
         let transaction = await axios.get(
             `https://api.etherscan.io/api?module=account&action=tokentx&address=${user}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=${process.env.API_EthScan}`
@@ -119,10 +125,12 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
         uniqueAddresses.pid0[user].harvestedTokens = 0
         for (let i = 0; i < transaction.data.result.length; i++) {
             if (
+                //The token is CGT and from MasterChef
                 transaction.data.result[i].from === MasterChefAddress.toLowerCase()
                 &&
                 transaction.data.result[i].tokenSymbol === 'CGT'
             ) {
+                //and this this transaction must be withdraw or deposit
                 if (
                     !withDrawHash.pid0Hash.includes(transaction.data.result[i].hash)
                     &&
@@ -133,6 +141,7 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
         }
     }
 
+    //get All users token
     for (let user of Object.keys(uniqueAddresses.pidOther)) {
 
         uniqueAddresses.pidOther[user].userTokens = uniqueAddresses.pidOther[user].harvestedTokens +
@@ -142,14 +151,17 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
         AllUsersTokens += uniqueAddresses.pidOther[user].userTokens;
     }
 
+    //Get sum of tokens which are harvested and can be pended for pid 0
     for (let user of Object.keys(uniqueAddresses.pid0)) {
         uniqueAddresses.pid0[user].userTokens = uniqueAddresses.pid0[user].harvestedTokens + Number(uniqueAddresses.pid0[user].pending0)
     }
+
+    //Get sum of tokens which are harvested and can be pended for pid other
     for (let user of Object.keys(uniqueAddresses.pidOther)) {
-
         uniqueAddresses.pidOther[user].DUMMYpart = uniqueAddresses.pidOther[user].userTokens / AllUsersTokens;
-
     }
+
+    //save object in json
     fs.writeFile('./logs/CGTpending1.json', JSON.stringify(uniqueAddresses), function (err) {
         if (err) {
             console.log(err);
@@ -157,6 +169,7 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
     });
 
 
+    //Get all tokens which has been harvested and can be pended
     let AdminUserTokens = 0;
     for (let admin of Object.keys(uniqueAddresses.pid0)) {
         AdminUserTokens += uniqueAddresses.pid0[admin].userTokens;
@@ -164,11 +177,11 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
 
     let DataForMerkleTree = [];
 
+    //This data will be for Merkle tree
     for (let user of Object.keys(uniqueAddresses.pidOther)) {
         let amount = AdminUserTokens * uniqueAddresses.pidOther[user].DUMMYpart
         let address = user;
         DataForMerkleTree.push({address, amount})
-
     }
 
     fs.writeFile('./logs/DataForMerkleTree.json', JSON.stringify(DataForMerkleTree), function (err) {
@@ -178,6 +191,8 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
     });
 
 
+
+    //This is not my code, if u have question ask to Andrey pls (((
     let totalFunds = 0;
     let gIndex = 0;
     const elements = DataForMerkleTree.map((x) => {
