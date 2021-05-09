@@ -16,13 +16,19 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
     require('dotenv').config(config);
 
     console.log("Starting");
-
     //connect to mainNet
     const web3 = new Web3(new Web3.providers.HttpProvider(process.env.INFURA_URL));
 
     //get main contract
     const MasterChefAddress = process.env.MASTER_CHEF_ADDRESS;
     const ContractChef = new web3.eth.Contract(MasterChef, MasterChefAddress);
+
+    if (endBlock === 'latest') {
+        endBlock = await web3.eth.getBlockNumber();
+    }
+
+    console.log("start Block: ", startBlock);
+    console.log("end Block: ", endBlock);
 
     let pid0Hash = [];
     let pidOtherHash = [];
@@ -82,14 +88,14 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
 
     //get all other Pid
     for (const user of Object.keys(uniqueAddresses.pidOther)) {
-        uniqueAddresses.pidOther[user].pending1 = Number(await ContractChef.methods.pendingSushi(1, user).call());
-        uniqueAddresses.pidOther[user].pending2 = Number(await ContractChef.methods.pendingSushi(2, user).call());
-        uniqueAddresses.pidOther[user].pending3 = Number(await ContractChef.methods.pendingSushi(3, user).call());
+        uniqueAddresses.pidOther[user].pending1 = Number(await ContractChef.methods.pendingSushi(1, user).call(undefined, endBlock));
+        uniqueAddresses.pidOther[user].pending2 = Number(await ContractChef.methods.pendingSushi(2, user).call(undefined, endBlock));
+        uniqueAddresses.pidOther[user].pending3 = Number(await ContractChef.methods.pendingSushi(3, user).call(undefined, endBlock));
     }
 
     //get with pid 0 (there are will be only 1 address)
     for (const user of Object.keys(uniqueAddresses.pid0)) {
-        uniqueAddresses.pid0[user].pending0 = Number(await ContractChef.methods.pendingSushi(0, user).call());
+        uniqueAddresses.pid0[user].pending0 = Number(await ContractChef.methods.pendingSushi(0, user).call(undefined, endBlock));
     }
 
 
@@ -189,7 +195,6 @@ async function GetMerkleHash(startBlock, endBlock, config = null) {
             console.log(err);
         }
     });
-
 
 
     //This is not my code, if u have question ask to Andrey pls (((
